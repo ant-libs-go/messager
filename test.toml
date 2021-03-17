@@ -1,0 +1,8 @@
+[messager.dingdingtext]
+    messager = "dingding_text"
+    token = "b59c2d05cf0b506bdf66838a774b0a86228878601f7869dfb50ea11142e233"
+    ats = ["18000000000"]
+[messager.dingdingdownload]
+    messager = "dingding_download"
+    token = "b59c2d05cf0b506bdf66838a774b0a86228878601f7869dfb50ea11142e233"
+    ats = ["18000000000"]
