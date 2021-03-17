@@ -37,6 +37,7 @@ func TestDingDingDownload(t *testing.T) {
 	fmt.Println(Call("dingdingdownload", map[string]string{
 		"title":        "测试标题",
 		"text":         "测试测试，开始下载",
+		"expire_time":  "2021/03/17 10:00:00)",
 		"download_url": "http://www.baidu.com",
 	}))
 }
