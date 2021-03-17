@@ -82,9 +82,8 @@ func (this *Messager) callDingDingDown(params map[string]string) (err error) {
 	msg := `{"msgtype": "actionCard", "actionCard": {
 			"title": "__TITLE__",
 			"text": "__TEXT__",
-			"hideAvatar": "0",
 			"btnOrientation": "0",
-			"btns": [{"title": "点击下载(3天内有效)", "actionURL": "__DOWNLOAD_URL__"}]
+			"btns": [{"title": "点击下载(过期时间:__EXPIRE_TIME__)", "actionURL": "__DOWNLOAD_URL__"}]
 		}}`
 	resp := &struct {
 		Errcode int32
