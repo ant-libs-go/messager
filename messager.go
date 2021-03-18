@@ -5,6 +5,8 @@
 # Description:
 ####################################################################### */
 
+// https://developers.dingtalk.com/document/app/custom-robot-access
+
 package messager
 
 import (
