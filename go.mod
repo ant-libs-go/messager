@@ -1,4 +1,4 @@
-module messager
+module github.com/ant-libs-go/messager
 
 go 1.14
 
