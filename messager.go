@@ -65,6 +65,9 @@ func (this *Messager) Call(params map[string]string) (err error) {
 }
 
 func (this *Messager) callDingDingText(params map[string]string) (err error) {
+	if len(params["text"]) > 18000 { // dingding max message length
+		params["text"] = params["text"][:18000]
+	}
 	msg := `{"msgtype": "text", "text": {"content": "__TEXT__"}, "at": {"atMobiles": __ATS__}}`
 	resp := &struct {
 		Errcode int32
@@ -85,7 +88,7 @@ func (this *Messager) callDingDingDown(params map[string]string) (err error) {
 			"title": "__TITLE__",
 			"text": "__TEXT__",
 			"btnOrientation": "0",
-			"btns": [{"title": "点击下载(过期时间:__EXPIRE_TIME__)", "actionURL": "__DOWNLOAD_URL__"}]
+			"btns": [{"title": "点击下载(截止:__EXPIRE_TIME__)", "actionURL": "__DOWNLOAD_URL__"}]
 		}}`
 	resp := &struct {
 		Errcode int32
