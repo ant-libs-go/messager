@@ -73,7 +73,7 @@ func (this *Messager) callDingDingText(params map[string]string) (err error) {
 		Errcode int32
 		Errmsg  string
 	}{}
-	_, err = this.buildRestClient().Call(nil, this.buildMsg(msg, params), resp)
+	_, err = this.buildRestClient().Call(nil, nil, this.buildMsg(msg, params), resp)
 	if err == nil {
 		util.IfDo(resp.Errcode != 0, func() { err = fmt.Errorf("reply code is %d, no 0. %s", resp.Errcode, resp.Errmsg) })
 	}
@@ -94,7 +94,7 @@ func (this *Messager) callDingDingDown(params map[string]string) (err error) {
 		Errcode int32
 		Errmsg  string
 	}{}
-	_, err = this.buildRestClient().Call(nil, this.buildMsg(msg, params), resp)
+	_, err = this.buildRestClient().Call(nil, nil, this.buildMsg(msg, params), resp)
 	if err == nil {
 		util.IfDo(resp.Errcode != 0, func() { err = fmt.Errorf("reply code is %d, no 0. %s", resp.Errcode, resp.Errmsg) })
 	}
