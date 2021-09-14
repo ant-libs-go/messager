@@ -79,16 +79,15 @@ func LoadCfg(name string) (r *Cfg, err error) {
 func loadCfgs() (r map[string]*Cfg, err error) {
 	r = map[string]*Cfg{}
 
-	cfg := &messagerConfig{}
 	once.Do(func() {
-		_, err = config.Load(cfg, options.WithOnChangeFn(func(cfg interface{}) {
+		config.Get(&messagerConfig{}, options.WithOpOnChangeFn(func(cfg interface{}) {
 			lock.Lock()
 			defer lock.Unlock()
 			pools = map[string]*Messager{}
 		}))
 	})
 
-	cfg = config.Get(cfg).(*messagerConfig)
+	cfg := config.Get(&messagerConfig{}).(*messagerConfig)
 	if err == nil && (cfg.Cfgs == nil || len(cfg.Cfgs) == 0) {
 		err = fmt.Errorf("not configed")
 	}
