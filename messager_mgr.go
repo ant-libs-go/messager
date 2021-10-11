@@ -21,6 +21,10 @@ var (
 	pools map[string]*Messager
 )
 
+func init() {
+	pools = map[string]*Messager{}
+}
+
 type messagerConfig struct {
 	Cfgs map[string]*Cfg `toml:"messager"`
 }
